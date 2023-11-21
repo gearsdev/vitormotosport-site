@@ -7,7 +7,7 @@ export function Header() {
     <header className="h-[100px] w-full bg-black text-white">
       <Container>
         <div className="h-full w-full flex justify-between items-center">
-          <Image src="/logo.svg" alt="Logo" height={96} width={96} />
+          <Image src="logos/logo.svg" alt="Logo" height={96} width={96} />
           <nav>
             <ul className="flex gap-12">
               <li><Link href="/">Página inicial</Link></li>
