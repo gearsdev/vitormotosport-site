@@ -1,3 +1,4 @@
+import { Button } from "@/components/Button";
 import { CardProduct } from "@/components/CardProduct";
 import { Container } from "@/components/Container";
 import { Footer } from "@/components/Footer";
@@ -26,7 +27,7 @@ export default function Home() {
           <div className=" h-full flex flex-col items-center justify-center">
             <Title>Qual moto é a sua cara?</Title>
             <p>Aqui você conta com vários modelos disponíveis a pronta entrega.</p>
-            <button className="h-11 px-4 text-xl bg-red-600 text-white mt-6">Conferir todos os modelos</button>
+            <Button className="mt-8">Conferir todos os modelos</Button>
           </div>
         </Container>
         <img src="imgs/section1.png" alt="" />
@@ -36,7 +37,7 @@ export default function Home() {
           <div className=" h-full flex flex-col items-center justify-center">
             <Title>Qual moto é a sua cara?</Title>
             <p>Aqui você conta com vários modelos disponíveis a pronta entrega.</p>
-            <button className="h-11 px-4 text-xl border-red-600 border text-red-600 mt-6">Conferir todos os modelos</button>
+            <Button className="mt-8" variant="outline">Conferir todos os modelos</Button>
           </div>
         </Container>
       </section>
@@ -47,7 +48,7 @@ export default function Home() {
           <div className=" h-full flex flex-col items-center justify-center">
             <Title>Qual moto é a sua cara?</Title>
             <p>Aqui você conta com vários modelos disponíveis a pronta entrega.</p>
-            <button className="h-11 px-4 text-xl bg-red-600 text-white mt-6">Conferir todos os modelos</button>
+            <Button className="mt-8">Conferir todos os modelos</Button>
           </div>
         </Container>
       </section>
