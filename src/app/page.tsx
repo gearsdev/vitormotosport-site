@@ -7,18 +7,16 @@ import { Title } from "@/components/Title";
 export default function Home() {
   return (
     <>
-      <section className="bg-white">
+      <section className="bg-white py-16">
         <Container>
-          <div className="py-16 flex flex-col items-start gap-8">
-            <Title>Motos em destaque</Title>
-            <div className="flex gap-4 w-full overflow-auto">
-              <CardProduct />
-              <CardProduct />
-              <CardProduct />
-              <CardProduct />
-              <CardProduct />
-              <CardProduct />
-            </div>
+          <Title className="mb-8">Motos em destaque</Title>
+          <div className="flex gap-4 w-full overflow-auto">
+            <CardProduct />
+            <CardProduct />
+            <CardProduct />
+            <CardProduct />
+            <CardProduct />
+            <CardProduct />
           </div>
         </Container>
       </section>
