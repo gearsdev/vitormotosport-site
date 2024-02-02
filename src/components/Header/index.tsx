@@ -7,17 +7,27 @@ export function Header() {
     <header className="h-[100px] w-full bg-black text-white">
       <Container>
         <div className="h-full w-full flex justify-between items-center">
-          <Image src="logos/logo.svg" alt="Logo" height={96} width={96} />
+          <Link href="/">
+            <Image src="logos/logo.svg" alt="Logo" height={96} width={96} />
+          </Link>
           <nav>
             <ul className="flex gap-12">
-              <li><Link href="/">Página inicial</Link></li>
-              <li><Link href="/about">Quem somos</Link></li>
-              <li><Link href="/vehicles">Motos</Link></li>
-              <li><Link href="/about">Contato</Link></li>
+              <li className="hover:text-gray-300 hover:border-b-2 hover:border-yellow-500">
+                <Link href="/">HOME</Link>
+              </li>
+              <li className="hover:text-gray-300 hover:border-b-2 hover:border-yellow-500">
+                <Link href="/about">QUEM SOMOS</Link>
+              </li>
+              <li className="hover:text-gray-300 hover:border-b-2 hover:border-yellow-500">
+                <Link href="/vehicles">MOTOS</Link>
+              </li>
+              <li className="hover:text-gray-300 hover:border-b-2 hover:border-yellow-500">
+                <Link href="/about">CONTATO</Link>
+              </li>
             </ul>
           </nav>
         </div>
       </Container>
     </header>
-  )
+  );
 }
