@@ -23,7 +23,7 @@ export function FavoritedProducts() {
       <Container>
         <Title className="mb-8 text-center xl:text-left">Motos em destaque</Title>
         <div className="flex gap-4 w-full overflow-auto">
-          {vehicles.map((vehicle) => (
+          {vehicles?.map((vehicle) => (
             <CardProduct key={vehicle.id} product={vehicle} />
           ))}
         </div>
