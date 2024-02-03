@@ -8,7 +8,7 @@ export default function Page() {
   return (
     <>
       <section className="bg-[#0E0F0D]">
-        <Container className="px-0">
+        <Container className="!px-0">
           <img src="imgs/banner.png" alt="" />
         </Container>
       </section>

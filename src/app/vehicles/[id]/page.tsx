@@ -28,20 +28,21 @@ export default function Page() {
   return (
     <>
       <Container className="py-20">
-        <div className="flex items-stretch flex-1 gap-4">
+        <div className="flex flex-col lg:flex-row items-stretch flex-1 gap-4">
+          <Title className="lg:hidden">{`${currentVehicle?.brand?.name} ${currentVehicle?.model?.name}`}</Title>
           <Image
             width={720}
             height={720}
             src={
               currentVehicle?.vehicleImage?.length
-                ? "/imgs/r3.png"
-                : "/imgs/r3.png"
+                ? currentVehicle?.vehicleImage[0].url_image
+                : "/imgs/fallback-img.png"
             }
             alt={currentVehicle?.model?.name || ""}
           />
-          <div className="flex flex-col flex-1">
+          <div className="flex flex-col flex-1 gap-8">
             <div className="flex flex-col h-full">
-              <Title>{`${currentVehicle?.brand?.name} ${currentVehicle?.model?.name}`}</Title>
+              <Title className="hidden lg:block">{`${currentVehicle?.brand?.name} ${currentVehicle?.model?.name}`}</Title>
               <span className="text-xl mt-2">
                 <strong className="mr-1">Marca:</strong>
                 {currentVehicle?.brand?.name}
@@ -61,7 +62,7 @@ export default function Page() {
             </div>
             <div className="flex flex-col gap-2">
               <Title>{formatCurrency(currentVehicle?.price || "")}</Title>
-              <Button className="bg-green-700 hover:bg-green-800">
+              <Button className="!bg-green-700 hover:!bg-green-800">
                 <Image
                   src="/icons/whatsapp.svg"
                   alt="WhatsApp"

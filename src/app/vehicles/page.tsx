@@ -24,9 +24,12 @@ export default function Page() {
         <p>Confira abaixo os modelos disponíveis para pronta entrega.</p>
         <p>Selecione o modelo desejado para mais informações.</p>
       </div>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="flex flex-col md:grid md:grid-cols-3 gap-8 md:gap-4">
         {vehicles.map((vehicle) => (
-          <CardProduct key={vehicle.id} product={vehicle} />
+          <>
+            <CardProduct key={vehicle.id} product={vehicle} />
+            <CardProduct key={vehicle.id} product={vehicle} />
+          </>
         ))}
       </div>
     </Container>
