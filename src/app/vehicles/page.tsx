@@ -25,9 +25,8 @@ export default function Page() {
         <p>Selecione o modelo desejado para mais informações.</p>
       </div>
       <div className="flex flex-col md:grid md:grid-cols-3 gap-8 md:gap-4">
-        {vehicles.map((vehicle) => (
+        {vehicles?.map((vehicle) => (
           <>
-            <CardProduct key={vehicle.id} product={vehicle} />
             <CardProduct key={vehicle.id} product={vehicle} />
           </>
         ))}
