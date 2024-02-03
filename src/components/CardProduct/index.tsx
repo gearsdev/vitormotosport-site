@@ -1,10 +1,23 @@
-export function CardProduct() {
+/* eslint-disable @next/next/no-img-element */
+'use client'
+
+import { Vehicle } from "@/interfaces/Vehicle"
+import { formatCurrency } from "@/utils/formatCurrency"
+import { useRouter } from "next/navigation"
+
+interface CardProductProps {
+  product: Vehicle
+}
+
+export function CardProduct({ product }: CardProductProps) {
+  const router = useRouter()
+
   return (
-    <div className="min-w-[360px] bg-gray-100">
-      <img src="imgs/r3.png" alt="" />
+    <div className="w-full md:max-w-[360px] bg-gray-100" onClick={() => router.push(`/vehicles/${product.id}`)}>
+      <img src={!!product.vehicleImage?.length ? product.vehicleImage[0]?.url_image : "/imgs/fallback-img.png"} alt="" />
       <div className="p-8">
-        <h2 className="text-2xl font-semibold mb-1">Yamaha R3 2020</h2>
-        <span className="text-lg">R$ 29.990,00</span>
+        <h2 className="text-2xl font-semibold mb-1">{`${product.brand?.name} ${product.model?.name}`}</h2>
+        <span className="text-lg">{formatCurrency(product.price)}</span>
       </div>
     </div>
   )
