@@ -1,35 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
 import { Button } from "@/components/Button";
-import { CardProduct } from "@/components/CardProduct";
 import { Container } from "@/components/Container";
+import { FavoritedProducts } from "@/components/FavoritedProducts";
 import { Title } from "@/components/Title";
 
-export default function Home() {
+export default function Page() {
   return (
     <>
-      <section className="bg-dark-gray">
-        <Container>
+      <section className="bg-[#0E0F0D]">
+        <Container className="px-0">
           <img src="imgs/banner.png" alt="" />
         </Container>
       </section>
-      <section className="bg-white py-16">
-        <Container>
-          <Title className="mb-8">Motos em destaque</Title>
-          <div className="flex gap-4 w-full overflow-auto">
-            <CardProduct />
-            <CardProduct />
-            <CardProduct />
-            <CardProduct />
-            <CardProduct />
-            <CardProduct />
-          </div>
-        </Container>
-      </section>
-      <section className="bg-gray-100 flex h-80">
+      <FavoritedProducts />
+      <section className="bg-gray-100 flex flex-col xl:flex-row xl:h-96">
         <Container className="h-full">
-          <div className=" h-full flex flex-col items-start justify-center">
+          <div className="h-full flex flex-col items-center py-20">
             <Title>Qual moto é a sua cara?</Title>
-            <p className="mt-8">
+            <p className="mt-8 text-center">
               Aqui você conta com vários modelos disponíveis a <br /> pronta
               entrega.
             </p>
@@ -40,10 +28,12 @@ export default function Home() {
         </Container>
         <img src="imgs/section1.png" alt="" />
       </section>
-      <section className="bg-white py-20">
+      <section className="bg-white">
         <Container className="h-full">
-          <div className=" h-full flex flex-col items-center justify-center">
-            <Title>Venda sua moto pelo melhor preço</Title>
+          <div className="h-full flex flex-col items-center py-20">
+            <Title className="text-center">
+              Venda sua moto pelo melhor preço
+            </Title>
             <p className="mt-8 text-center">
               Excelência em serviço de revenda, fácil e sem <br /> burocracia!
             </p>
@@ -53,13 +43,12 @@ export default function Home() {
           </div>
         </Container>
       </section>
-
-      <section className="bg-gray-100 flex h-80">
-        <img src="imgs/section2.png" alt="" />
+      <section className="bg-gray-100 flex flex-col xl:flex-row xl:h-96">
+        <img src="imgs/section2.png" alt="" className="h-96 object-cover" />
         <Container className="h-full">
-          <div className=" h-full flex flex-col items-start justify-center">
+          <div className="h-full flex flex-col items-center py-20">
             <Title>Vamos tomar um café?</Title>
-            <p className="mt-8 ">
+            <p className="mt-8 text-center">
               Aqui você conta com vários modelos disponíveis a <br /> pronta
               entrega. Vamos tomar um café?
             </p>

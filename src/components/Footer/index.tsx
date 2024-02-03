@@ -4,7 +4,7 @@ import { Title } from "../Title";
 export function Footer() {
   return (
     <footer className="py-20 bg-black flex flex-col items-center justify-center">
-      <Image src="logos/logo.svg" alt="Logo" height={192} width={192} />
+      <Image src="/logos/logo.svg" alt="Logo" height={192} width={192} />
       <Title className="text-white">Siga nas redes sociais</Title>
       <div className="flex gap-8 mt-4">
         <a
@@ -13,7 +13,7 @@ export function Footer() {
           rel="noopener noreferrer"
         >
           <Image
-            src="icons/facebook.svg"
+            src="/icons/facebook.svg"
             alt="Facebook"
             height={32}
             width={32}
@@ -25,7 +25,7 @@ export function Footer() {
           rel="noopener noreferrer"
         >
           <Image
-            src="icons/instagram.svg"
+            src="/icons/instagram.svg"
             alt="Instagram"
             height={32}
             width={32}
