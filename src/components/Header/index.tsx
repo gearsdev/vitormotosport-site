@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Container } from "../Container";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { X, Menu } from 'lucide-react';
+import { X, Menu } from "lucide-react";
 
 export function Header() {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -13,7 +13,7 @@ export function Header() {
 
   const menuItems = [
     { name: "PÁGINA INICIAL", href: "/" },
-    { name: "QUEM SOMOS", href: "/about" },
+    { name: "QUEM SOMOS", href: "/contact" },
     { name: "MOTOS", href: "/vehicles" },
     { name: "CONTATO", href: "/contact" },
   ];
