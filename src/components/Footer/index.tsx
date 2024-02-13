@@ -72,7 +72,7 @@ export function Footer() {
               className="text-white text-sm underline cursor-pointer hover:text-blue-100 ml-4"
               onClick={handleWhatsappClick}
             >
-              +55 14 997171882
+              +55 14 9 9717-1882
             </a>
           </div>
 
