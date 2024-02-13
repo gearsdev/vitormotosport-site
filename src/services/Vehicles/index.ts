@@ -1,14 +1,9 @@
+import { Search } from './../../interfaces/SearchParams';
 import { APIResponse } from "../../interfaces/APIResponse"
-import { Vehicle } from "../../interfaces/Vehicle"
 import { api } from "../api"
 
-interface GetAllVehicleParams {
-  query?: string
-  status?: string
-}
-
 export const vehicle = {
-  async getAll<T>({ query, status }: GetAllVehicleParams = {}) {
+  async getAll<T>({ query, status }: Search = {}) {
     const { data } = await api.get<APIResponse<T>>("/vehicles", {
       params: {
         query,
@@ -19,6 +14,7 @@ export const vehicle = {
     })
     return data
   },
+
   async getById<T>(id: string) {
     const { data } = await api.get<APIResponse<T>>(`/vehicles/${id}`)
     return data
