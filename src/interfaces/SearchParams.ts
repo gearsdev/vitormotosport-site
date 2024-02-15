@@ -3,5 +3,10 @@ export interface Search {
     limit?: number,
     page?: number,
     orderBy?: string,
-    status?: string
+}
+
+export interface VehicleSearch extends Search {
+    status?: string,
+    brandId?: string,
+    modelId?: string,
 }
