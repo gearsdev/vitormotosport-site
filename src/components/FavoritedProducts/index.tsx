@@ -9,6 +9,8 @@ import { CardProduct } from "../CardProduct";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
+import style from './styles.module.css';
+
 export function FavoritedProducts() {
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
   const [emblaRef] = useEmblaCarousel({ loop: true, align: "start" }, []);
@@ -29,10 +31,10 @@ export function FavoritedProducts() {
         <Title className="mb-8 text-center xl:text-left">
           Motos em destaque
         </Title>
-        <div className="flex gap-4 w-full overflow-auto embla" ref={emblaRef}>
-          <div className="embla__container">
+        <div className={`flex gap-4 w-full overflow-auto ${style.embla}`} ref={emblaRef}>
+          <div className={style.embla__container}>
             {vehicles?.map((vehicle) => (
-              <div key={vehicle.id} className="embla__slide">
+              <div key={vehicle.id} className={style.embla__slide}>
                 <CardProduct className="" key={vehicle.id} product={vehicle} />
               </div>
             ))}

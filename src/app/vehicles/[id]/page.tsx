@@ -12,6 +12,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Phone } from "lucide-react";
 import { FavoritedProducts } from "@/components/FavoritedProducts";
+import { CarouselImageProducts } from "@/components/CarouselImageProducts.tsx";
 
 export default function Page() {
   const { id } = useParams<{
@@ -30,15 +31,8 @@ export default function Page() {
       <Container className="py-20">
         <div className="flex flex-col lg:flex-row items-stretch flex-1 gap-4">
           <Title className="lg:hidden">{`${currentVehicle?.brand?.name} ${currentVehicle?.model?.name}`}</Title>
-          <Image
-            width={720}
-            height={720}
-            src={
-              currentVehicle?.vehicleImage?.length
-                ? currentVehicle?.vehicleImage[0].url_image
-                : "/imgs/fallback-img.png"
-            }
-            alt={currentVehicle?.model?.name || ""}
+          <CarouselImageProducts
+            currentVehicle={currentVehicle}
           />
           <div className="flex flex-col flex-1 gap-8">
             <div className="flex flex-col h-full">
