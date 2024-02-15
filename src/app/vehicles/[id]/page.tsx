@@ -62,7 +62,7 @@ export default function Page() {
             </div>
             <div className="flex flex-col gap-2">
               <Title>{formatCurrency(currentVehicle?.price || "")}</Title>
-              <Button className="!bg-green-700 hover:!bg-green-800">
+              <Button className="bg-green-700 hover:bg-green-800">
                 <Image
                   src="/icons/whatsapp.svg"
                   alt="WhatsApp"
