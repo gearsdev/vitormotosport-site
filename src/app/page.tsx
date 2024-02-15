@@ -3,6 +3,7 @@ import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { FavoritedProducts } from "@/components/FavoritedProducts";
 import { Title } from "@/components/Title";
+import Link from "next/link";
 
 export default function Page() {
   return (
@@ -21,9 +22,9 @@ export default function Page() {
               Aqui você conta com vários modelos disponíveis a <br /> pronta
               entrega.
             </p>
-            <Button className="mt-8 bg-yellow-500">
-              Conferir todos os modelos
-            </Button>
+            <Link href="/vehicles" className="mt-8">
+              <Button >Conferir todos os modelos</Button>
+            </Link>
           </div>
         </Container>
         <img src="imgs/section1.png" alt="" />
@@ -37,9 +38,11 @@ export default function Page() {
             <p className="mt-8 text-center">
               Excelência em serviço de revenda, fácil e sem <br /> burocracia!
             </p>
-            <Button className="mt-8" variant="outline">
-              Entrar em contato pelo WhatsApp
-            </Button>
+            <a href="https://wa.me/5514997171882" target="_blank">
+              <Button className="mt-8" variant="outline">
+                Entrar em contato pelo WhatsApp
+              </Button>
+            </a>
           </div>
         </Container>
       </section>
@@ -52,7 +55,9 @@ export default function Page() {
               Aqui você conta com vários modelos disponíveis a <br /> pronta
               entrega. Vamos tomar um café?
             </p>
-            <Button className="mt-8">Conferir todos os modelos</Button>
+            <Link href="/vehicles" className="mt-8">
+              <Button >Conferir todos os modelos</Button>
+            </Link>
           </div>
         </Container>
       </section>

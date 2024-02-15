@@ -5,13 +5,6 @@ import { Container } from "../Container";
 import { Facebook, Instagram, Mail, Pin } from "lucide-react";
 
 export function Footer() {
-  const handleWhatsappClick = () => {
-    const numeroTelefone = "+5514997171882";
-    const urlWhatsapp = `https://wa.me/${numeroTelefone}`;
-
-    window.open(urlWhatsapp, "_blank");
-  };
-
   return (
     <footer className="py-20 bg-black">
       <Container>
@@ -58,7 +51,8 @@ export function Footer() {
                   />
                   <a
                     className="text-white text-sm underline cursor-pointer hover:text-blue-100 ml-4"
-                    onClick={handleWhatsappClick}
+                    href="https://wa.me/5514997171882"
+                    target="_blank"
                   >
                     +55 14 9 9717-1882
                   </a>

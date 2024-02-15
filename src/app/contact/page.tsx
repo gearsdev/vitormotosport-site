@@ -65,19 +65,27 @@ export default function Page() {
                   contato pelo WhatsApp ou pelo telefone a baixo.
                 </p>
                 <div className="flex flex-col gap-4 w-full md:w-96 self-center mt-8">
-                  <Button className="!bg-green-700 hover:!bg-green-800">
-                    <Image
-                      src="/icons/whatsapp.svg"
-                      alt="WhatsApp"
-                      height={24}
-                      width={24}
-                    />
-                    Entrar em contato
-                  </Button>
-                  <Button>
-                    <Phone />
-                    (14) 91234-5678
-                  </Button>
+                  <a
+                    href="https://wa.me/5514997171882"
+                    className="w-full"
+                    target="_blank"
+                  >
+                    <Button className="!bg-green-700 hover:!bg-green-800 !w-full">
+                      <Image
+                        src="/icons/whatsapp.svg"
+                        alt="WhatsApp"
+                        height={24}
+                        width={24}
+                      />
+                      Entrar em contato
+                    </Button>
+                  </a>
+                  <a href="tel:+5514997171882" className="w-full">
+                    <Button className="!w-full">
+                      <Phone />
+                      (14) 91234-5678
+                    </Button>
+                  </a>
                 </div>
               </div>
               <div>
