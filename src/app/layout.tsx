@@ -7,7 +7,7 @@ import { Footer } from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Vitormotosport',
+  title: 'VitorMotoSport',
   description: 'Sua loja de motos em Barra Bonita - SP',
 }
 
@@ -21,9 +21,9 @@ export default function RootLayout({
       <head>
       <link
         rel="icon"
-        href="/logos/logo.svg"
-        type="image/svg+xml"
-        sizes="any"
+        href="/favicon/favicon.png"
+        type="image/png"
+        sizes="64x64"
       />
       </head>
       <body className={inter.className}>
