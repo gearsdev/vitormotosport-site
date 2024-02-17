@@ -22,12 +22,21 @@ export default function Page() {
   const [brandSelected, setBrandSelected] = useState<Brand>();
   const [modelSelected, setModelSelected] = useState<Model>();
   const [query, setQuery] = useState<string>();
+  const [page, setPage] = useState(1);
 
   const fetchVehicles = useCallback(() => {
-    vehicle.getAll<Vehicle[]>({query, brandId: brandSelected?.id, modelId: modelSelected?.id} ).then((response) => {
-      setVehicles(response.data);
-    });
-  }, [brandSelected?.id, modelSelected?.id, query]);
+    vehicle
+      .getAll<Vehicle[]>({
+        query,
+        brandId: brandSelected?.id,
+        modelId: modelSelected?.id,
+        page,
+        limit: 3
+      })
+      .then((response) => {
+        setVehicles((prev) => [...prev, ...response.data]);
+      });
+  }, [brandSelected?.id, modelSelected?.id, query, page]);
 
   useEffect(() => {
     fetchVehicles();
@@ -134,6 +143,16 @@ export default function Page() {
         {vehicles?.map((vehicle) => (
           <CardProduct key={vehicle.id} product={vehicle} />
         ))}
+      </div>
+
+      <div className="flex w-full items-center justify-center mt-4">
+        <Button
+          onClick={() => setPage(page + 1)}
+          className="w-full md:w-auto mt-8"
+          variant="outline"
+        >
+          Carregar mais
+        </Button>
       </div>
     </Container>
   );
