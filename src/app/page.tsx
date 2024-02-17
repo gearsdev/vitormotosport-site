@@ -22,7 +22,7 @@ export default function Page() {
               Aqui você conta com vários modelos disponíveis a <br /> pronta
               entrega.
             </p>
-            <Link href="/vehicles" className="mt-8">
+            <Link href="/vehicles" className="mt-8 w-full md:w-auto">
               <Button >Conferir todos os modelos</Button>
             </Link>
           </div>
@@ -38,7 +38,7 @@ export default function Page() {
             <p className="mt-8 text-center">
               Excelência em serviço de revenda, fácil e sem <br /> burocracia!
             </p>
-            <a href="https://wa.me/5514997171882" target="_blank">
+            <a href="https://wa.me/5514997171882" target="_blank" className="w-full md:w-auto">
               <Button className="mt-8" variant="outline">
                 Entrar em contato pelo WhatsApp
               </Button>
@@ -55,7 +55,7 @@ export default function Page() {
               Aqui você conta com vários modelos disponíveis a <br /> pronta
               entrega. Vamos tomar um café?
             </p>
-            <Link href="/vehicles" className="mt-8">
+            <Link href="/vehicles" className="mt-8 w-full md:w-auto">
               <Button >Conferir todos os modelos</Button>
             </Link>
           </div>
