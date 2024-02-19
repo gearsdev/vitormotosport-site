@@ -23,7 +23,7 @@ export function Header() {
   }, [location]);
 
   return (
-    <header className="h-[100px] w-full bg-black text-white">
+    <header className="h-[100px] w-full bg-black text-white z-50 sticky">
       <Container>
         <div className="h-full w-full flex justify-between items-center">
           <Link href="/">

@@ -10,8 +10,9 @@ import { formatKilometers } from "@/utils/formatKilometers";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Phone } from 'lucide-react'
+import { Phone } from "lucide-react";
 import { FavoritedProducts } from "@/components/FavoritedProducts";
+import { CarouselImageProducts } from "@/components/CarouselImageProducts.tsx";
 
 export default function Page() {
   const { id } = useParams<{
@@ -30,15 +31,8 @@ export default function Page() {
       <Container className="py-20">
         <div className="flex flex-col lg:flex-row items-stretch flex-1 gap-4">
           <Title className="lg:hidden">{`${currentVehicle?.brand?.name} ${currentVehicle?.model?.name}`}</Title>
-          <Image
-            width={720}
-            height={720}
-            src={
-              currentVehicle?.vehicleImage?.length
-                ? currentVehicle?.vehicleImage[0].url_image
-                : "/imgs/fallback-img.png"
-            }
-            alt={currentVehicle?.model?.name || ""}
+          <CarouselImageProducts
+            currentVehicle={currentVehicle}
           />
           <div className="flex flex-col flex-1 gap-8">
             <div className="flex flex-col h-full">
@@ -62,23 +56,34 @@ export default function Page() {
             </div>
             <div className="flex flex-col gap-2">
               <Title>{formatCurrency(currentVehicle?.price || "")}</Title>
-              <Button className="bg-green-700 hover:bg-green-800">
-                <Image
-                  src="/icons/whatsapp.svg"
-                  alt="WhatsApp"
-                  height={24}
-                  width={24}
-                />
-                Entrar em contato
-              </Button>
-              <Button><Phone />(14) 91234-5678</Button>
+              <a
+                target="_blank"
+                href={`https://wa.me/5514997171882?text=Ol%C3%A1%20Vitor.%20Estou%20interessado%20no%20modelo%20${currentVehicle?.brand?.name}%20${currentVehicle?.model?.name}.`}
+                className="w-full"
+              >
+                <Button className="!bg-green-700 hover:!bg-green-800 !w-full">
+                  <Image
+                    src="/icons/whatsapp.svg"
+                    alt="WhatsApp"
+                    height={24}
+                    width={24}
+                  />
+                  Entrar em contato
+                </Button>
+              </a>
+              <a href="tel:+5514997171882" className="w-full">
+                <Button className="!w-full">
+                  <Phone />
+                  (14) 91234-5678
+                </Button>
+              </a>
             </div>
           </div>
         </div>
       </Container>
       <section className="py-20 bg-gray-100">
         <Container>
-          <p>{currentVehicle?.description || 'Não há descrição'}</p>
+          <p>{currentVehicle?.description || "Não há descrição"}</p>
         </Container>
       </section>
       <FavoritedProducts />

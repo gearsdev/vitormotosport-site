@@ -22,12 +22,23 @@ export default function Page() {
   const [brandSelected, setBrandSelected] = useState<Brand>();
   const [modelSelected, setModelSelected] = useState<Model>();
   const [query, setQuery] = useState<string>();
+  const [page, setPage] = useState(1);
+  const [totalRegisters, setTotalRegisters] = useState(0);
 
   const fetchVehicles = useCallback(() => {
-    vehicle.getAll<Vehicle[]>({query, brandId: brandSelected?.id, modelId: modelSelected?.id} ).then((response) => {
-      setVehicles(response.data);
-    });
-  }, [brandSelected?.id, modelSelected?.id, query]);
+    vehicle
+      .getAll<Vehicle[]>({
+        query,
+        brandId: brandSelected?.id,
+        modelId: modelSelected?.id,
+        page,
+        limit: 3,
+      })
+      .then((response) => {
+        setVehicles((prev) => [...prev, ...response.data]);
+        response.totalRegisters && setTotalRegisters(response.totalRegisters);
+      });
+  }, [brandSelected?.id, modelSelected?.id, query, page]);
 
   useEffect(() => {
     fetchVehicles();
@@ -116,8 +127,10 @@ export default function Page() {
           <div className="w-full md:w-auto">
             <Button
               onClick={() => {
+                setModels([]);
                 setBrandSelected(undefined);
                 setModelSelected(undefined);
+                setPage(1);
                 setQuery("");
               }}
               variant="outline"
@@ -135,6 +148,17 @@ export default function Page() {
           <CardProduct key={vehicle.id} product={vehicle} />
         ))}
       </div>
+      {vehicles.length < totalRegisters && (
+        <div className="flex w-full items-center justify-center mt-4">
+          <Button
+            onClick={() => setPage(page + 1)}
+            className="w-full md:w-auto mt-8"
+            variant="outline"
+          >
+            Carregar mais
+          </Button>
+        </div>
+      )}
     </Container>
   );
 }

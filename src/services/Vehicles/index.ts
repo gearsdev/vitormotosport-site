@@ -3,13 +3,14 @@ import { APIResponse } from "../../interfaces/APIResponse"
 import { api } from "../api"
 
 export const vehicle = {
-  async getAll<T>({ query, status, brandId, modelId }: VehicleSearch = {}) {
+  async getAll<T>({ query, status = "", brandId, modelId, limit = 12, page = 1 }: VehicleSearch = {}) {
     const { data } = await api.get<APIResponse<T>>("/vehicles", {
       params: {
         query,
         orderBy: "createdAt desc",
-        status: status || "",
-        limit: 15,
+        limit,
+        page,
+        status,
         brandId,
         modelId
       }
@@ -17,25 +18,26 @@ export const vehicle = {
     return data
   },
 
-  async getAllByBrand<T>(brandId: string, { query, status }: VehicleSearch = {}) {
+  async getAllByBrand<T>(brandId: string, { query, status = "", limit = 12, page = 1 }: VehicleSearch = {}) {
     const { data } = await api.get<APIResponse<T>>(`/vehicles/brands/${brandId}`, {
       params: {
         query,
         orderBy: "createdAt desc",
-        status: status || "",
-        limit: 15
+        status,
+        limit
       }
     })
     return data
   },
 
-  async getAllByModel<T>(modelId: string, { query, status }: VehicleSearch = {}) {
+  async getAllByModel<T>(modelId: string, { query, status = "", limit = 12, page = 1 }: VehicleSearch = {}) {
     const { data } = await api.get<APIResponse<T>>(`/vehicles/models/${modelId}`, {
       params: {
         query,
         orderBy: "createdAt desc",
-        status: status || "",
-        limit: 15
+        status,
+        limit,
+        page
       }
     })
     return data
