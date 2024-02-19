@@ -15,7 +15,7 @@ export function Header() {
     { name: "PÁGINA INICIAL", href: "/" },
     { name: "QUEM SOMOS", href: "/about" },
     { name: "MOTOS", href: "/vehicles" },
-    { name: "CONTATO", href: "/about" },
+    { name: "CONTATO", href: "/about#contact" },
   ];
 
   useEffect(() => {

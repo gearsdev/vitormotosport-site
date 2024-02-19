@@ -54,7 +54,7 @@ export default function Page() {
           </div>
         </Container>
       </section>
-      <section className="bg-gray-100">
+      <section className="bg-gray-100" id="contact">
         <Container className="py-16">
           <div className="flex flex-col md:flex-row justify-between items-start">
             <div className="flex flex-col gap-8">
