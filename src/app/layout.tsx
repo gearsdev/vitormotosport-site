@@ -29,7 +29,9 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <Header />
-        {children}
+        <div className='lg:min-h-[calc(100vh-388px)] min-h-[calc(100vh-600px)]'>
+          {children}
+        </div>
         <Footer />
         <WhatsAppWidget />
       </body>
