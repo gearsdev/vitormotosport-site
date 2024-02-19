@@ -13,9 +13,9 @@ export function Header() {
 
   const menuItems = [
     { name: "PÁGINA INICIAL", href: "/" },
-    { name: "QUEM SOMOS", href: "/contact" },
+    { name: "QUEM SOMOS", href: "/about" },
     { name: "MOTOS", href: "/vehicles" },
-    { name: "CONTATO", href: "/contact" },
+    { name: "CONTATO", href: "/about" },
   ];
 
   useEffect(() => {

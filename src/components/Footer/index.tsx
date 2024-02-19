@@ -50,18 +50,18 @@ export function Footer() {
                     width={24}
                   />
                   <a
-                    className="text-white text-sm underline cursor-pointer hover:text-blue-100 ml-4"
+                    className="text-white text-sm cursor-pointer hover:text-zinc-300 ml-4"
                     href="https://wa.me/5514997171882"
                     target="_blank"
                   >
-                    +55 14 9 9717-1882
+                    (14) 99717-1882
                   </a>
                 </div>
                 <div className="flex">
                   <Mail color="white" size={24} />
                   <a
                     href="mailto:vitormotosport@gmail.com"
-                    className="text-white text-sm underline cursor-pointer hover:text-blue-100 ml-4"
+                    className="text-white text-sm cursor-pointer hover:text-zinc-300 ml-4"
                   >
                     vitormotosport@gmail.com
                   </a>

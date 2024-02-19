@@ -3,6 +3,8 @@ import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { FavoritedProducts } from "@/components/FavoritedProducts";
 import { Title } from "@/components/Title";
+import { Phone } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Page() {
@@ -23,7 +25,7 @@ export default function Page() {
               entrega.
             </p>
             <Link href="/vehicles" className="mt-8 w-full md:w-auto">
-              <Button >Conferir todos os modelos</Button>
+              <Button>Conferir todos os modelos</Button>
             </Link>
           </div>
         </Container>
@@ -38,7 +40,11 @@ export default function Page() {
             <p className="mt-8 text-center">
               Excelência em serviço de revenda, fácil e sem <br /> burocracia!
             </p>
-            <a href="https://wa.me/5514997171882" target="_blank" className="w-full md:w-auto">
+            <a
+              href="https://wa.me/5514997171882"
+              target="_blank"
+              className="w-full md:w-auto"
+            >
               <Button className="mt-8" variant="outline">
                 Entrar em contato pelo WhatsApp
               </Button>
@@ -52,12 +58,32 @@ export default function Page() {
           <div className="h-full flex flex-col items-center py-20">
             <Title>Vamos tomar um café?</Title>
             <p className="mt-8 text-center">
-              Aqui você conta com vários modelos disponíveis a <br /> pronta
-              entrega. Vamos tomar um café?
+              Venha nos fazer uma visita e tomar um café conosco, <br /> estamos
+              te esperando!
             </p>
-            <Link href="/vehicles" className="mt-8 w-full md:w-auto">
-              <Button >Conferir todos os modelos</Button>
-            </Link>
+            <div className="flex flex-col gap-4 w-full md:w-96 self-center mt-8">
+                  <a
+                    href="https://wa.me/5514997171882"
+                    className="w-full"
+                    target="_blank"
+                  >
+                    <Button className="!bg-green-700 hover:!bg-green-800 !w-full">
+                      <Image
+                        src="/icons/whatsapp.svg"
+                        alt="WhatsApp"
+                        height={24}
+                        width={24}
+                      />
+                      Entrar em contato
+                    </Button>
+                  </a>
+                  <a href="tel:+5514997171882" className="w-full">
+                    <Button className="!w-full">
+                      <Phone />
+                      (14) 91234-5678
+                    </Button>
+                  </a>
+                </div>
           </div>
         </Container>
       </section>
