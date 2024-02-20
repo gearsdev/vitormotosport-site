@@ -6,10 +6,10 @@ import { Facebook, Instagram, Mail, Pin } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="py-20 bg-black">
-      <Container>
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
-          <div>
+    <footer className="lg:h-72 h-[500px] bg-black">
+      <Container className="!flex">
+        <div className="w-full flex flex-col lg:flex-row items-center lg:justify-between justify-center gap-4">
+          <div className="mb-4 lg:mb-0">
             <Image src="/logos/logo.svg" alt="Logo" height={192} width={192} />
           </div>
           <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:items-start">
@@ -50,18 +50,18 @@ export function Footer() {
                     width={24}
                   />
                   <a
-                    className="text-white text-sm underline cursor-pointer hover:text-blue-100 ml-4"
+                    className="text-white text-sm cursor-pointer hover:text-zinc-300 ml-4"
                     href="https://wa.me/5514997171882"
                     target="_blank"
                   >
-                    +55 14 9 9717-1882
+                    (14) 99717-1882
                   </a>
                 </div>
                 <div className="flex">
                   <Mail color="white" size={24} />
                   <a
                     href="mailto:vitormotosport@gmail.com"
-                    className="text-white text-sm underline cursor-pointer hover:text-blue-100 ml-4"
+                    className="text-white text-sm cursor-pointer hover:text-zinc-300 ml-4"
                   >
                     vitormotosport@gmail.com
                   </a>
