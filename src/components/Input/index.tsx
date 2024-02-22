@@ -4,7 +4,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     type: string;
     placeholder?: string;
     search?: boolean;
-    onSearch?: () => void;
+    onSearch?: (params: any) => void;
 }
 
 export function Input({ placeholder = 'Digite algo aqui...', type, search = false, onSearch, ...res }: InputProps) {

@@ -13,62 +13,89 @@ import { brand } from "@/services/Brands";
 import { model } from "@/services/Models";
 import { vehicle } from "@/services/Vehicles";
 import { Trash } from "lucide-react";
-import { Fragment, useCallback, useEffect, useState } from "react";
+import { Fragment, use, useCallback, useEffect, useState } from "react";
 
 export default function Page() {
-  const [vehicles, setVehicles] = useState<Vehicle[]>([]);
-  const [brands, setBrands] = useState<Brand[]>([]);
-  const [models, setModels] = useState<Model[]>([]);
+  const [vehicles, setVehicles] = useState<Vehicle[]>();
+  const [brands, setBrands] = useState<Brand[]>();
+  const [models, setModels] = useState<Model[]>();
   const [brandSelected, setBrandSelected] = useState<Brand>();
   const [modelSelected, setModelSelected] = useState<Model>();
   const [query, setQuery] = useState<string>();
   const [page, setPage] = useState(1);
   const [totalRegisters, setTotalRegisters] = useState<number>();
 
-  const fetchVehicles = useCallback(() => {
-    vehicle
-      .getAll<Vehicle[]>({
-        query,
-        brandId: brandSelected?.id,
-        modelId: modelSelected?.id,
-        page,
-        limit: 3,
-        status: "available"
-      })
-      .then((response) => {
-        setVehicles((prev) => [...prev, ...response.data]);
-        response.totalRegisters && setTotalRegisters(response.totalRegisters);
-        console.log(response);
-      });
-  }, [brandSelected?.id, modelSelected?.id, query, page]);
+  const fetchVehicles = useCallback(
+    ({
+      query = "",
+      brandId = "",
+      modelId = "",
+      page = 1,
+    }: {
+      query?: string;
+      brandId?: string;
+      modelId?: string;
+      page?: number;
+    } = {}) => {
+      vehicle
+        .getAll<Vehicle[]>({
+          query,
+          brandId,
+          modelId,
+          page,
+          limit: 3,
+          status: "available",
+        })
+        .then((response) => {
+          setVehicles((prev) => {
+            return prev
+              ? [...prev, ...response.data]
+              : response.data;
+          });
+          response.totalRegisters && setTotalRegisters(response.totalRegisters);
+        });
+    },
+    []
+  );
 
   useEffect(() => {
     fetchVehicles();
-
-    brand.getAll<Brand[]>().then((response) => {
-      setBrands(response.data);
-    });
   }, [fetchVehicles]);
 
   useEffect(() => {
+    brand.getAll<Brand[]>().then((response) => {
+      setBrands(response.data);
+    });
+  }, []);
+
+  useEffect(() => {
     if (brandSelected) {
+      setQuery("");
       model.getAllByBrand<Model[]>(brandSelected.id).then((response) => {
         setModels(response.data);
       });
-
-      vehicle.getAllByBrand<Vehicle[]>(brandSelected.id).then((response) => {
-        setVehicles(response.data);
+      setVehicles(undefined);
+      fetchVehicles({
+        brandId: brandSelected.id,
+        page: 1,
       });
     }
-  }, [brandSelected]);
+  }, [brandSelected, fetchVehicles]);
 
   useEffect(() => {
-    if (modelSelected) {
+    if (modelSelected && brandSelected) {
+      setQuery("");
       vehicle.getAllByModel<Vehicle[]>(modelSelected.id).then((response) => {
         setVehicles(response.data);
       });
+      setVehicles(undefined);
+      fetchVehicles({
+        brandId: brandSelected.id,
+        modelId: modelSelected.id,
+        page: 1,
+      });
     }
-  }, [modelSelected]);
+  }, [modelSelected, brandSelected, fetchVehicles]);
 
   if (totalRegisters === 0) {
     return (
@@ -81,7 +108,7 @@ export default function Page() {
     );
   }
 
-  if (vehicles.length === 0 && totalRegisters === undefined) {
+  if (vehicles === undefined) {
     return (
       <Container className="py-16">
         <Title className="mb-8">Conheça nossa linha de seminovas</Title>
@@ -140,6 +167,7 @@ export default function Page() {
               const brand = brands?.find(
                 (item) => item.id == value.target.value
               );
+              setPage(1);
               setBrandSelected(brand);
             }}
           ></Select>
@@ -148,11 +176,9 @@ export default function Page() {
         <div className="flex flex-col md:w-1/3 w-full">
           <label className="mb-1">Modelo </label>
           <Select
-          placeholder={
-            models.length === 0
-                      ? "Nenhum modelo encontrado"
-                      : "Selecione"
-          }
+            placeholder={
+              models?.length === 0 ? "Nenhum modelo encontrado" : "Selecione"
+            }
             options={
               models?.map((item) => {
                 return { label: item.name, value: item.id };
@@ -160,6 +186,7 @@ export default function Page() {
             }
             value={modelSelected?.id || ""}
             onChange={(value) => {
+              setPage(1);
               const model = models?.find(
                 (item) => item.id == value.target.value
               );
@@ -172,7 +199,15 @@ export default function Page() {
         <div className="flex flex-col md:w-1/3 w-full">
           <label className="mb-1">Pesquisar </label>
           <Input
-            onSearch={fetchVehicles}
+            onSearch={() => {
+              setModels(undefined);
+              setBrandSelected(undefined);
+              setVehicles(undefined);
+              fetchVehicles({
+                query,
+                page: 1,
+              });
+            }}
             value={query}
             onChange={(event) => {
               setQuery(event.target.value);
@@ -186,11 +221,13 @@ export default function Page() {
           <div className="w-full md:w-auto">
             <Button
               onClick={() => {
-                setModels([]);
+                setModels(undefined);
                 setBrandSelected(undefined);
                 setModelSelected(undefined);
+                setVehicles(undefined);
                 setPage(1);
                 setQuery("");
+                fetchVehicles();
               }}
               variant="outline"
               className="!p-3"
@@ -202,7 +239,7 @@ export default function Page() {
         )}
       </div>
 
-      {vehicles.length === 0 && (
+      {vehicles?.length === 0 && (
         <div className="flex w-full items-center justify-center">
           <p>Nenhum veículo encontrado</p>
         </div>
@@ -213,25 +250,31 @@ export default function Page() {
         ))}
       </div>
 
-      {vehicles.length !== 0 && totalRegisters !== vehicles.length && (
+      {vehicles?.length !== 0 && totalRegisters !== vehicles?.length && (
         <div className="mt-4">
+          <div className="flex w-full items-center justify-center">
+            <Button
+              onClick={() => {
+                setPage(page + 1);
+                fetchVehicles({
+                  query,
+                  brandId: brandSelected?.id,
+                  modelId: modelSelected?.id,
+                  page: page + 1,
+                });
+              }}
+              className="w-full md:w-auto mt-8"
+              variant="outline"
+            >
+              Carregar mais
+            </Button>
+          </div>
 
-            <div className="flex w-full items-center justify-center">
-              <Button
-                onClick={() => setPage(page + 1)}
-                className="w-full md:w-auto mt-8"
-                variant="outline"
-              >
-                Carregar mais
-              </Button>
-            </div>
-          
-            <div className="flex w-full items-center justify-center mt-1">
-              <span className="text-zinc-400 text-sm">
-                Exibindo {vehicles.length} de {totalRegisters} veículos
-              </span>
-            </div>
-          
+          <div className="flex w-full items-center justify-center mt-1">
+            <span className="text-zinc-400 text-sm">
+              Exibindo {vehicles?.length} de {totalRegisters} veículos
+            </span>
+          </div>
         </div>
       )}
     </Container>
