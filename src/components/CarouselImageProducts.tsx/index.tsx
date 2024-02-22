@@ -59,15 +59,25 @@ export function CarouselImageProducts({
   return (
     <div className={style.embla} ref={emblaRef}>
       <div className={style.embla__container}>
-        {currentVehicle?.vehicleImage?.map((vehicle) => (
-          <div key={vehicle.id} className={style.embla__slide}>
+        {currentVehicle?.vehicleImage?.length === 0 ? (
+          <div className={style.embla__slide}>
             <img
-              src={vehicle.url_image || "/imgs/fallback-img.png"}
+              src="/imgs/fallback-img.png"
               alt={currentVehicle?.model?.name || ""}
               className="w-full h-full object-cover"
             />
           </div>
-        ))}
+        ) : (
+          currentVehicle?.vehicleImage?.map((vehicle) => (
+            <div key={vehicle.id} className={style.embla__slide}>
+              <img
+                src={vehicle.url_image}
+                alt={currentVehicle?.model?.name || ""}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))
+        )}
       </div>
       <div className="embla__buttons">
         <PrevButton onClick={scrollPrev} disabled={prevBtnDisabled} />
