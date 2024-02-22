@@ -13,7 +13,9 @@ import style from "./styles.module.css";
 
 export function FavoritedProducts() {
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
-  const [emblaRef] = useEmblaCarousel({ loop: true, align: "start" }, []);
+  const [emblaRef] = useEmblaCarousel({ loop: true, align: "start" }, [
+    Autoplay(),
+  ]);
 
   useEffect(() => {
     vehicle
@@ -33,7 +35,7 @@ export function FavoritedProducts() {
             Motos em destaque
           </Title>
           <div
-            className={`flex gap-4 w-full overflow-auto ${style.embla}`}
+            className={`flex gap-4 w-full overflow-hidden ${style.embla}`}
             ref={emblaRef}
           >
             <div className={style.embla__container}>
