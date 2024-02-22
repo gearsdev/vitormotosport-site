@@ -33,10 +33,12 @@ export default function Page() {
         modelId: modelSelected?.id,
         page,
         limit: 3,
+        status: "available"
       })
       .then((response) => {
         setVehicles((prev) => [...prev, ...response.data]);
         response.totalRegisters && setTotalRegisters(response.totalRegisters);
+        console.log(response);
       });
   }, [brandSelected?.id, modelSelected?.id, query, page]);
 
@@ -146,6 +148,11 @@ export default function Page() {
         <div className="flex flex-col md:w-1/3 w-full">
           <label className="mb-1">Modelo </label>
           <Select
+          placeholder={
+            models.length === 0
+                      ? "Nenhum modelo encontrado"
+                      : "Selecione"
+          }
             options={
               models?.map((item) => {
                 return { label: item.name, value: item.id };
