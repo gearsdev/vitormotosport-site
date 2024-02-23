@@ -9,11 +9,13 @@ import { CardProduct } from "../CardProduct";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
-import style from './styles.module.css';
+import style from "./styles.module.css";
 
 export function FavoritedProducts() {
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
-  const [emblaRef] = useEmblaCarousel({ loop: true, align: "start" }, []);
+  const [emblaRef] = useEmblaCarousel({ loop: true, align: "start" }, [
+    Autoplay(),
+  ]);
 
   useEffect(() => {
     vehicle
@@ -26,21 +28,30 @@ export function FavoritedProducts() {
   }, []);
 
   return (
-    <section className="bg-white py-16">
-      <Container>
-        <Title className="mb-8 text-center xl:text-left">
-          Motos em destaque
-        </Title>
-        <div className={`flex gap-4 w-full overflow-auto ${style.embla}`} ref={emblaRef}>
-          <div className={style.embla__container}>
-            {vehicles?.map((vehicle) => (
-              <div key={vehicle.id} className={style.embla__slide}>
-                <CardProduct className="" key={vehicle.id} product={vehicle} />
-              </div>
-            ))}
+    vehicles.length > 0 && (
+      <section className="bg-white py-16">
+        <Container>
+          <Title className="mb-8 text-center xl:text-left">
+            Motos em destaque
+          </Title>
+          <div
+            className={`flex gap-4 w-full overflow-hidden ${style.embla}`}
+            ref={emblaRef}
+          >
+            <div className={style.embla__container}>
+              {vehicles?.map((vehicle) => (
+                <div key={vehicle.id} className={style.embla__slide}>
+                  <CardProduct
+                    className=""
+                    key={vehicle.id}
+                    product={vehicle}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </Container>
-    </section>
+        </Container>
+      </section>
+    )
   );
 }
