@@ -35,7 +35,7 @@ export function FavoritedProducts() {
             Motos em destaque
           </Title>
           <div
-            className={`flex gap-4 w-full overflow-hidden ${style.embla}`}
+            className={`${style.embla}`}
             ref={emblaRef}
           >
             <div className={style.embla__container}>
