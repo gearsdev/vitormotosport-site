@@ -97,7 +97,7 @@ export default function Page() {
     }
   }, [modelSelected, brandSelected, fetchVehicles]);
 
-  if (totalRegisters === 0) {
+  if (!totalRegisters && vehicles?.length === 0) {
     return (
       <Container className="py-16">
         <Title className="mb-8">Conheça nossa linha de seminovas</Title>
@@ -108,7 +108,7 @@ export default function Page() {
     );
   }
 
-  if (vehicles === undefined) {
+  if (!vehicles) {
     return (
       <Container className="py-16">
         <Title className="mb-8">Conheça nossa linha de seminovas</Title>
