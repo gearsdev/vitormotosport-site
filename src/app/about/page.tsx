@@ -92,7 +92,7 @@ export default function Page() {
                 <Title className="mb-8">VENHA NOS CONHECER</Title>
                 <p>
                   Rua Geraldo Fazzio, 1028 - Distrito Industrial I, Barra Bonita
-                  - SP, 17340-000
+                  - SP, 17342-580
                 </p>
               </div>
             </div>
