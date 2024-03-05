@@ -9,8 +9,9 @@ export function Footer() {
     <footer className="lg:h-72 h-[500px] bg-black">
       <Container className="!flex">
         <div className="w-full flex flex-col lg:flex-row items-center lg:justify-between justify-center gap-4">
-          <div className="mb-4 lg:mb-0">
+          <div className="mb-4 lg:mb-0 flex flex-col items-center justify-center gap-4">
             <Image src="/logos/logo.svg" alt="Logo" height={192} width={192} />
+            <span className="text-zinc-100 font-light">Cliente satisfeito é a nossa satisfação</span>
           </div>
           <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:items-start">
             <div className="flex flex-col items-center gap-4">
