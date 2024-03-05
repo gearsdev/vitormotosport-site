@@ -19,7 +19,7 @@ export default function Page() {
       <section className="bg-gray-100 flex flex-col xl:flex-row xl:h-96">
         <Container className="h-full">
           <div className="h-full flex flex-col items-center py-20">
-            <Title>Qual moto é a sua cara?</Title>
+            <Title>Qual moto faz o seu estilo?</Title>
             <p className="mt-8 text-center">
               Aqui você conta com vários modelos disponíveis a <br /> pronta
               entrega.
@@ -80,7 +80,7 @@ export default function Page() {
                   <a href="tel:+5514997171882" className="w-full">
                     <Button className="!w-full">
                       <Phone />
-                      (14) 91234-5678
+                      (14) 99717-1882
                     </Button>
                   </a>
                 </div>

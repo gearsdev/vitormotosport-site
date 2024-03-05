@@ -26,29 +26,37 @@ export default function Page() {
               width={550}
               height={550}
             />
-            <div className="md:w-2/4">
+            <div className="md:w-2/4 space-y-4">
               <p>
-                A Vitor Motosport de Barra Bonita, fundada em 2023 e inaugurada
-                em 2024, é uma concessionária especializada que oferece uma
-                variedade de motos, desde modelos para o dia a dia até motos
-                esportivas e clássicas com cilindradas de até 1800 cc.
+                Tudo começou com um sonho que, naquele momento, parecia
+                impossível de realizar. O sonho ganhou vida quando Vitor decidiu
+                arriscar e dar o primeiro passo em 2020. Ele realizou sua
+                primeira venda com sua moto particular, usando os ganhos para
+                adquirir três motos e iniciar seu empreendimento.
               </p>
-
-              <br />
               <p>
-                Destacando-se pela maior boutique na região, a loja oferece
-                vestuário, acessórios e produtos originais de marcas renomadas.
-                Com uma equipe dedicada e oficina multimarcas, a Vitor Motosport
-                proporciona uma experiência completa para os entusiastas de
-                motocicletas.
+                As vendas começaram na oficina de funilaria artesanal de seu
+                pai, João, que sempre foi seu alicerce e incentivo para evoluir.
+                Com o apoio dele, o sonho começou a se tornar realidade, e as
+                vendas fluíram, aumentando o número de motos disponíveis.
               </p>
-              <br />
               <p>
-                Venha conhecer a Vitor Motosport, onde a paixão por motos se
-                encontra com uma seleção diversificada, uma boutique exclusiva e
-                serviços de alta qualidade. Estamos aqui para recebê-lo, tomar
-                um café juntos e proporcionar a você a oportunidade de fazer um
-                ótimo negócio. Sua jornada com a Vitor Motosport começa agora.
+                Em 2022, começamos a construir nossa loja com determinação e a
+                vontade de vê-la concluída. A cada tijolo colocado, sentimos a
+                alegria e a ansiedade pelo futuro crescendo.
+              </p>
+              <p>
+                Finalmente, em 03/02/2024, celebramos a inauguração da loja. Uma
+                empresa familiar onde os colaboradores são: Vitor, Tais (irmã),
+                João (pai) e Alessandra (mãe). Nossa missão é fornecer sempre
+                motos de qualidade e procedência para satisfazer e fidelizar
+                nossos clientes.
+              </p>
+              <p>
+                Na <strong>VITOR MOTOSPORT</strong>, acreditamos que um{' '}
+                <strong>cliente satisfeito é a nossa satisfação.</strong>{' '}
+                Estamos aqui para tornar seus sonhos de pilotar uma moto de
+                qualidade uma realidade. Venha fazer parte da nossa história!
               </p>
             </div>
           </div>
@@ -83,7 +91,7 @@ export default function Page() {
                   <a href="tel:+5514997171882" className="w-full">
                     <Button className="!w-full">
                       <Phone />
-                      (14) 91234-5678
+                      (14) 99717-1882
                     </Button>
                   </a>
                 </div>
@@ -92,7 +100,7 @@ export default function Page() {
                 <Title className="mb-8">VENHA NOS CONHECER</Title>
                 <p>
                   Rua Geraldo Fazzio, 1028 - Distrito Industrial I, Barra Bonita
-                  - SP, 17340-000
+                  - SP, 17342-580
                 </p>
               </div>
             </div>

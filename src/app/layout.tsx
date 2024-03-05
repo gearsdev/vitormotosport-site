@@ -8,7 +8,7 @@ import { WhatsAppWidget } from '@/components/WhatsAppWidget'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'VitorMotoSport',
+  title: 'VITOR MOTOSPORT',
   description: 'Sua loja de motos em Barra Bonita - SP',
 }
 
