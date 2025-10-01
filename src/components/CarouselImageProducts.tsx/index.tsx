@@ -1,5 +1,3 @@
-"use client";
-
 import { Vehicle } from "@/interfaces/Vehicle";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
