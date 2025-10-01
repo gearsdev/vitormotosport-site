@@ -14,8 +14,6 @@ import { Phone } from "lucide-react";
 import { FavoritedProducts } from "@/components/FavoritedProducts";
 import { CarouselImageProducts } from "@/components/CarouselImageProducts.tsx";
 
-export const runtime = 'edge';
-
 export default function Page() {
   const { id } = useParams<{
     id: string;
