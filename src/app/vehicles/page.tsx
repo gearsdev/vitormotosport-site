@@ -43,7 +43,7 @@ export default function Page() {
           brandId,
           modelId,
           page,
-          limit: 3,
+          limit: 15,
           status: "available",
         })
         .then((response) => {
