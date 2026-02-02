@@ -13,6 +13,15 @@ import { useEffect, useState } from "react";
 import { Phone } from "lucide-react";
 import { FavoritedProducts } from "@/components/FavoritedProducts";
 import { CarouselImageProducts } from "@/components/CarouselImageProducts.tsx";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export default function Page() {
   const { id } = useParams<{
@@ -31,11 +40,9 @@ export default function Page() {
       <Container className="py-20">
         <div className="flex flex-col lg:flex-row items-stretch flex-1 gap-4">
           <Title className="lg:hidden">{`${currentVehicle?.brand?.name} ${currentVehicle?.model?.name}`}</Title>
-          <CarouselImageProducts
-            currentVehicle={currentVehicle}
-          />
+          <CarouselImageProducts currentVehicle={currentVehicle} />
           <div className="flex flex-col flex-1 gap-8">
-            <div className="flex flex-col h-full">
+            <div className="flex flex-col flex-1">
               <Title className="hidden lg:block">{`${currentVehicle?.brand?.name} ${currentVehicle?.model?.name}`}</Title>
               <span className="text-xl mt-2">
                 <strong className="mr-1">Marca:</strong>
@@ -56,21 +63,51 @@ export default function Page() {
             </div>
             <div className="flex flex-col gap-2">
               <Title>{formatCurrency(currentVehicle?.price || "")}</Title>
-              <a
-                target="_blank"
-                href={`https://wa.me/5514997171882?text=Ol%C3%A1%20Vitor.%20Estou%20interessado%20no%20modelo%20${currentVehicle?.brand?.name}%20${currentVehicle?.model?.name}.`}
-                className="w-full"
-              >
-                <Button className="!bg-green-700 hover:!bg-green-800 !w-full">
-                  <Image
-                    src="/icons/whatsapp.svg"
-                    alt="WhatsApp"
-                    height={24}
-                    width={24}
-                  />
-                  Entrar em contato
-                </Button>
-              </a>
+
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button className="!bg-green-700 hover:!bg-green-800 !w-full !h-11">
+                    <Image
+                      src="/icons/whatsapp.svg"
+                      alt="WhatsApp"
+                      height={24}
+                      width={24}
+                    />
+                    Entrar em contato
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuGroup>
+                    <a
+                      target="_blank"
+                      href={`https://wa.me/5514997171882?text=Ol%C3%A1%20Vitor.%20Estou%20interessado%20no%20modelo%20${currentVehicle?.brand?.name}%20${currentVehicle?.model?.name}.`}
+                      className="w-full"
+                    >
+                      <DropdownMenuItem>
+                        <b>Vitor</b> - (14) 99717-1882
+                      </DropdownMenuItem>
+                    </a>
+                    <a
+                      target="_blank"
+                      href={`https://wa.me/5514997131098?text=Ol%C3%A1%20Tais.%20Estou%20interessado%20no%20modelo%20${currentVehicle?.brand?.name}%20${currentVehicle?.model?.name}.`}
+                      className="w-full"
+                    >
+                      <DropdownMenuItem>
+                        <b>Tais</b> - (14) 99713-1098
+                      </DropdownMenuItem>
+                    </a>
+                    <a
+                      target="_blank"
+                      href={`https://wa.me/5514998574608?text=Ol%C3%A1%20Caio.%20Estou%20interessado%20no%20modelo%20${currentVehicle?.brand?.name}%20${currentVehicle?.model?.name}.`}
+                      className="w-full"
+                    >
+                      <DropdownMenuItem>
+                        <b>Caio</b> - (14) 99857-4608
+                      </DropdownMenuItem>
+                    </a>
+                  </DropdownMenuGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
               <a href="tel:+5514997171882" className="w-full">
                 <Button className="!w-full">
                   <Phone />

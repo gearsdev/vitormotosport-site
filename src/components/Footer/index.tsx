@@ -50,13 +50,29 @@ export function Footer() {
                     height={24}
                     width={24}
                   />
-                  <a
-                    className="text-white text-sm cursor-pointer hover:text-zinc-300 ml-4"
-                    href="https://wa.me/5514997171882"
-                    target="_blank"
-                  >
-                    (14) 99717-1882
-                  </a>
+                  <div className="flex flex-col">
+                    <a
+                      className="text-white text-sm cursor-pointer hover:text-zinc-300 ml-4"
+                      href="https://wa.me/5514997171882"
+                      target="_blank"
+                    >
+                      <b>Vitor</b> - (14) 99717-1882
+                    </a>
+                    <a
+                      className="text-white text-sm cursor-pointer hover:text-zinc-300 ml-4"
+                      href="https://wa.me/5514997131098"
+                      target="_blank"
+                    >
+                      <b>Tais</b> - (14) 99713-1098
+                    </a>
+                    <a
+                      className="text-white text-sm cursor-pointer hover:text-zinc-300 ml-4"
+                      href="https://wa.me/5514998574608"
+                      target="_blank"
+                    >
+                      <b>Caio</b> - (14) 99857-4608
+                    </a>
+                  </div>
                 </div>
                 <div className="flex">
                   <Mail color="white" size={24} />
